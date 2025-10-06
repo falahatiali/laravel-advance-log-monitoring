@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="public/simorgh.png" alt="Simorgh Logger" width="200" height="200">
+  <img src="public/simorgh.png" alt="Simorgh Logger">
   
   # 🦅 Simorgh Logger for Laravel
   
