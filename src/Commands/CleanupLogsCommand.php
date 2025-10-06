@@ -1,8 +1,8 @@
 <?php
 
-namespace AFM\AdvancedLogger\Commands;
+namespace Simorgh\Logger\Commands;
 
-use AFM\AdvancedLogger\Models\LogEntry;
+use Simorgh\Logger\Models\LogEntry;
 use Carbon\Carbon;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Storage;

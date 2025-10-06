@@ -1,10 +1,10 @@
 <?php
 
-namespace AFM\AdvancedLogger\Http\Controllers;
+namespace Simorgh\Logger\Http\Controllers;
 
-use AFM\AdvancedLogger\Facades\Logger;
-use AFM\AdvancedLogger\Models\LogEntry;
-use AFM\AdvancedLogger\Handlers\AlertHandler;
+use Simorgh\Logger\Facades\Logger;
+use Simorgh\Logger\Models\LogEntry;
+use Simorgh\Logger\Handlers\AlertHandler;
 use Illuminate\Http\Request;
 use Illuminate\Http\JsonResponse;
 use Illuminate\View\View;

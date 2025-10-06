@@ -1,11 +1,11 @@
 <?php
 
-namespace AFM\AdvancedLogger\Services;
+namespace Simorgh\Logger\Services;
 
-use AFM\AdvancedLogger\Contracts\LoggerInterface;
-use AFM\AdvancedLogger\Models\LogEntry;
-use AFM\AdvancedLogger\Handlers\AlertHandler;
-use AFM\AdvancedLogger\Handlers\StorageHandler;
+use Simorgh\Logger\Contracts\LoggerInterface;
+use Simorgh\Logger\Models\LogEntry;
+use Simorgh\Logger\Handlers\AlertHandler;
+use Simorgh\Logger\Handlers\StorageHandler;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Support\Facades\Auth;

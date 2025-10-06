@@ -41,20 +41,20 @@ The package will automatically register itself. If auto-discovery is disabled, a
 ```php
 'providers' => [
     // ...
-    AFM\SimorghLogger\SimorghLoggerServiceProvider::class,
+    Simorgh\Logger\SimorghLoggerServiceProvider::class,
 ],
 ```
 
 ### Publish Configuration
 
 ```bash
-php artisan vendor:publish --provider="AFM\SimorghLogger\SimorghLoggerServiceProvider" --tag="simorgh-logger-config"
+php artisan vendor:publish --provider="Simorgh\Logger\SimorghLoggerServiceProvider" --tag="simorgh-logger-config"
 ```
 
 ### Publish Migrations
 
 ```bash
-php artisan vendor:publish --provider="AFM\SimorghLogger\SimorghLoggerServiceProvider" --tag="simorgh-logger-migrations"
+php artisan vendor:publish --provider="Simorgh\Logger\SimorghLoggerServiceProvider" --tag="simorgh-logger-migrations"
 ```
 
 ### Run Migrations
@@ -68,7 +68,7 @@ php artisan migrate
 ### Basic Usage
 
 ```php
-use AFM\SimorghLogger\Facades\Simorgh;
+use Simorgh\Logger\Facades\Simorgh;
 
 // Simple logging
 Simorgh::info('Application started successfully');
@@ -236,7 +236,7 @@ Add to your `app/Http/Kernel.php`:
 ```php
 protected $middleware = [
     // ...
-    \AFM\SimorghLogger\Middleware\LogRequestsMiddleware::class,
+    \Simorgh\Logger\Middleware\LogRequestsMiddleware::class,
 ];
 ```
 
@@ -385,7 +385,7 @@ Simorgh::shouldReceive('error')->once()->with('Test message', []);
 Simorgh::error('Test message', []);
 
 // Test alerts
-$alertHandler = app(\AFM\SimorghLogger\Handlers\AlertHandler::class);
+$alertHandler = app(\Simorgh\Logger\Handlers\AlertHandler::class);
 $results = $alertHandler->testChannels();
 ```
 

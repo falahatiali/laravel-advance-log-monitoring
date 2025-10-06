@@ -1,6 +1,6 @@
 <?php
 
-namespace AFM\AdvancedLogger\Facades;
+namespace Simorgh\Logger\Facades;
 
 use Illuminate\Support\Facades\Facade;
 

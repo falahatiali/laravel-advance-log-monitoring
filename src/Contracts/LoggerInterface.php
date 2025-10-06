@@ -1,6 +1,6 @@
 <?php
 
-namespace AFM\AdvancedLogger\Contracts;
+namespace Simorgh\Logger\Contracts;
 
 interface LoggerInterface
 {

@@ -1,7 +1,7 @@
 <?php
 
-use AFM\AdvancedLogger\Http\Controllers\DashboardController;
-use AFM\AdvancedLogger\Http\Controllers\ApiController;
+use Simorgh\Logger\Http\Controllers\DashboardController;
+use Simorgh\Logger\Http\Controllers\ApiController;
 use Illuminate\Support\Facades\Route;
 
 /*

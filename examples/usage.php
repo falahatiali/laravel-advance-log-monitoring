@@ -7,7 +7,7 @@
  * in your Laravel application.
  */
 
-use AFM\AdvancedLogger\Facades\Logger;
+use Simorgh\Logger\Facades\Logger;
 
 // ============================================================================
 // BASIC LOGGING

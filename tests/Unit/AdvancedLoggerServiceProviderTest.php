@@ -1,10 +1,10 @@
 <?php
 
-namespace AFM\AdvancedLogger\Tests\Unit;
+namespace Simorgh\Logger\Tests\Unit;
 
-use AFM\AdvancedLogger\AdvancedLoggerServiceProvider;
-use AFM\AdvancedLogger\Contracts\LoggerInterface;
-use AFM\AdvancedLogger\Facades\Logger;
+use Simorgh\Logger\AdvancedLoggerServiceProvider;
+use Simorgh\Logger\Contracts\LoggerInterface;
+use Simorgh\Logger\Facades\Logger;
 use Orchestra\Testbench\TestCase;
 
 class AdvancedLoggerServiceProviderTest extends TestCase

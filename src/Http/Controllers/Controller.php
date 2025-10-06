@@ -1,6 +1,6 @@
 <?php
 
-namespace AFM\AdvancedLogger\Http\Controllers;
+namespace Simorgh\Logger\Http\Controllers;
 
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Validation\ValidatesRequests;

@@ -1,6 +1,6 @@
 <?php
 
-namespace AFM\AdvancedLogger\Models;
+namespace Simorgh\Logger\Models;
 
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Builder;

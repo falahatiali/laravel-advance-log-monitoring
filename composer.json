@@ -1,12 +1,12 @@
 {
-    "name": "falahatiali/simorgh-logger",
+    "name": "falahatiali/laravel-advance-log-monitoring",
     "description": "🦅 Simorgh Logger - Advanced log monitoring package for Laravel with dashboard, alerts, and intelligent categorization. Named after the legendary Persian bird.",
     "type": "library",
     "license": "MIT",
     "authors": [
         {
-            "name": "Falahati Ali",
-            "email": "your-email@example.com"
+            "name": "Ali Falahati",
+            "email": "falaahatiali@gmail.com"
         }
     ],
     "homepage": "https://github.com/falahatiali/laravel-advance-log-monitoring",
@@ -48,21 +48,21 @@
     },
     "autoload": {
         "psr-4": {
-            "AFM\\SimorghLogger\\": "src/"
+            "Simorgh\\Logger\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "AFM\\SimorghLogger\\Tests\\": "tests/"
+            "Simorgh\\Logger\\Tests\\": "tests/"
         }
     },
     "extra": {
         "laravel": {
             "providers": [
-                "AFM\\SimorghLogger\\SimorghLoggerServiceProvider"
+                "Simorgh\\Logger\\SimorghLoggerServiceProvider"
             ],
             "aliases": {
-                "Simorgh": "AFM\\SimorghLogger\\Facades\\Logger"
+                "Simorgh": "Simorgh\\Logger\\Facades\\Logger"
             }
         }
     },

@@ -1,8 +1,8 @@
 <?php
 
-namespace AFM\AdvancedLogger\Middleware;
+namespace Simorgh\Logger\Middleware;
 
-use AFM\AdvancedLogger\Facades\Logger;
+use Simorgh\Logger\Facades\Logger;
 use Closure;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;

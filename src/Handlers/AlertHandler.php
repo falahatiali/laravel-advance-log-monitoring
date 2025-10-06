@@ -1,8 +1,8 @@
 <?php
 
-namespace AFM\AdvancedLogger\Handlers;
+namespace Simorgh\Logger\Handlers;
 
-use AFM\AdvancedLogger\Models\LogEntry;
+use Simorgh\Logger\Models\LogEntry;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Mail;

@@ -1,11 +1,11 @@
 <?php
 
-namespace AFM\SimorghLogger;
+namespace Simorgh\Logger;
 
-use AFM\SimorghLogger\Commands\CleanupLogsCommand;
-use AFM\SimorghLogger\Middleware\LogRequestsMiddleware;
-use AFM\SimorghLogger\Models\LogEntry;
-use AFM\SimorghLogger\Observers\LogModelObserver;
+use Simorgh\Logger\Commands\CleanupLogsCommand;
+use Simorgh\Logger\Middleware\LogRequestsMiddleware;
+use Simorgh\Logger\Models\LogEntry;
+use Simorgh\Logger\Observers\LogModelObserver;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;

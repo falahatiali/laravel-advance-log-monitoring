@@ -1,9 +1,9 @@
 <?php
 
-namespace AFM\AdvancedLogger\Tests\Unit;
+namespace Simorgh\Logger\Tests\Unit;
 
-use AFM\AdvancedLogger\Services\LoggerService;
-use AFM\AdvancedLogger\Models\LogEntry;
+use Simorgh\Logger\Services\LoggerService;
+use Simorgh\Logger\Models\LogEntry;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 
