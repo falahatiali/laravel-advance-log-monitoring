@@ -1,18 +1,18 @@
 {
-    "name": "afm/simorgh-logger",
+    "name": "falahatiali/simorgh-logger",
     "description": "🦅 Simorgh Logger - Advanced log monitoring package for Laravel with dashboard, alerts, and intelligent categorization. Named after the legendary Persian bird.",
     "type": "library",
     "license": "MIT",
     "authors": [
         {
-            "name": "AFM",
+            "name": "Falahati Ali",
             "email": "your-email@example.com"
         }
     ],
-    "homepage": "https://github.com/afm/laravel-advance-log-monitoring",
+    "homepage": "https://github.com/falahatiali/laravel-advance-log-monitoring",
     "support": {
-        "issues": "https://github.com/afm/laravel-advance-log-monitoring/issues",
-        "source": "https://github.com/afm/laravel-advance-log-monitoring"
+        "issues": "https://github.com/falahatiali/laravel-advance-log-monitoring/issues",
+        "source": "https://github.com/falahatiali/laravel-advance-log-monitoring"
     },
     "keywords": [
         "laravel",
