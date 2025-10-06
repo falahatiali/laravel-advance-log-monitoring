@@ -1,9 +1,13 @@
-# 🦅 Simorgh Logger for Laravel
-
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/falahatiali/simorgh-logger.svg?style=flat-square)](https://packagist.org/packages/falahatiali/simorgh-logger)
-[![Total Downloads](https://img.shields.io/packagist/dt/falahatiali/simorgh-logger.svg?style=flat-square)](https://packagist.org/packages/falahatiali/simorgh-logger)
-[![MIT Licensed](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE.md)
-[![GitHub Repository](https://img.shields.io/badge/GitHub-laravel--advance--log--monitoring-blue.svg?style=flat-square)](https://github.com/falahatiali/laravel-advance-log-monitoring)
+<div align="center">
+  <img src="public/simorgh.png" alt="Simorgh Logger" width="200" height="200">
+  
+  # 🦅 Simorgh Logger for Laravel
+  
+  [![Latest Version on Packagist](https://img.shields.io/packagist/v/falahatiali/simorgh-logger.svg?style=flat-square)](https://packagist.org/packages/falahatiali/simorgh-logger)
+  [![Total Downloads](https://img.shields.io/packagist/dt/falahatiali/simorgh-logger.svg?style=flat-square)](https://packagist.org/packages/falahatiali/simorgh-logger)
+  [![MIT Licensed](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE.md)
+  [![GitHub Repository](https://img.shields.io/badge/GitHub-laravel--advance--log--monitoring-blue.svg?style=flat-square)](https://github.com/falahatiali/laravel-advance-log-monitoring)
+</div>
 
 🦅 **Simorgh Logger** - A powerful and feature-rich logging package for Laravel applications with dashboard, alerts, and intelligent categorization. Named after the legendary Persian bird that watches over and protects all under its wings.
 
