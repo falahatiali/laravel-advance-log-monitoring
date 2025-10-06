@@ -1,0 +1,74 @@
+{
+    "name": "afm/simorgh-logger",
+    "description": "🦅 Simorgh Logger - Advanced log monitoring package for Laravel with dashboard, alerts, and intelligent categorization. Named after the legendary Persian bird.",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "AFM",
+            "email": "your-email@example.com"
+        }
+    ],
+    "homepage": "https://github.com/afm/laravel-advance-log-monitoring",
+    "support": {
+        "issues": "https://github.com/afm/laravel-advance-log-monitoring/issues",
+        "source": "https://github.com/afm/laravel-advance-log-monitoring"
+    },
+    "keywords": [
+        "laravel",
+        "logging",
+        "monitoring",
+        "dashboard",
+        "alerts",
+        "simorgh",
+        "persian",
+        "middleware",
+        "package",
+        "php",
+        "composer",
+        "real-time",
+        "analytics",
+        "security"
+    ],
+    "require": {
+        "php": "^8.1",
+        "laravel/framework": "^10.0|^11.0|^12.0",
+        "monolog/monolog": "^3.0",
+        "livewire/livewire": "^3.0"
+    },
+    "require-dev": {
+        "orchestra/testbench": "^8.0|^9.0",
+        "phpunit/phpunit": "^10.0",
+        "mockery/mockery": "^1.4",
+        "laravel/tinker": "^2.0"
+    },
+    "scripts": {
+        "test": "phpunit",
+        "test-coverage": "phpunit --coverage-html coverage"
+    },
+    "autoload": {
+        "psr-4": {
+            "AFM\\SimorghLogger\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "AFM\\SimorghLogger\\Tests\\": "tests/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "AFM\\SimorghLogger\\SimorghLoggerServiceProvider"
+            ],
+            "aliases": {
+                "Simorgh": "AFM\\SimorghLogger\\Facades\\Logger"
+            }
+        }
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "minimum-stability": "stable",
+    "prefer-stable": true
+}
