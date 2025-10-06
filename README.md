@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="public/simorgh.png" alt="Simorgh Logger" width="200" height="200">
+  <img src="public/simorgh.png" alt="Simorgh Logger">
   
   # 🦅 Simorgh Logger for Laravel
   
@@ -399,7 +399,7 @@ Please see [CONTRIBUTING](CONTRIBUTING.md) for details.
 
 ## 🐛 Bug Reports
 
-If you discover a security vulnerability, please send an email to [your-email@example.com](mailto:your-email@example.com). All security vulnerabilities will be promptly addressed.
+If you discover a security vulnerability, please send an email to [falaahatiali@gmail.com](mailto:your-email@example.com). All security vulnerabilities will be promptly addressed.
 
 ## 📄 License
 
