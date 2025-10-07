@@ -144,6 +144,24 @@ Access the dashboard at `/simorgh-logger` (or your configured prefix).
 - `/simorgh-logger/alerts` - Alert management
 - `/simorgh-logger/settings` - Configuration
 
+### 📸 Dashboard Screenshots
+
+#### Main Dashboard
+![Main Dashboard](public/demo1.png)
+*Real-time overview with statistics, log distribution charts, and recent log entries*
+
+#### All Logs Browser
+![All Logs](public/demo2.png)
+*Advanced filtering, search capabilities, and export options (JSON, CSV, XML)*
+
+#### Statistics & Analytics
+![Statistics](public/demo3.png)
+*Comprehensive insights with date range filters, distribution charts, and trend analysis*
+
+#### Alert Configuration
+![Alerts](public/demo4.png)
+*Configure alert channels (Email, Slack, Telegram) and threshold settings*
+
 ## 🚨 Alerts Configuration
 
 ### Email Alerts
