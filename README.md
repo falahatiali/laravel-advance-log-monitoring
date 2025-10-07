@@ -344,18 +344,88 @@ $xml = Simorgh::exportLogs(['date_from' => '2025-01-01'], 'xml');
 
 ### Cleanup Commands
 
+The package includes a powerful cleanup command that automatically removes old logs:
+
 ```bash
-# Cleanup logs older than 30 days
+# Cleanup logs older than 30 days (uses config default)
+php artisan logs:cleanup
+
+# Cleanup logs older than specific number of days
 php artisan logs:cleanup --days=30
 
-# Cleanup only error logs
+# Cleanup only specific level
 php artisan logs:cleanup --level=error
 
-# Dry run (see what would be deleted)
+# Cleanup only specific category
+php artisan logs:cleanup --category=auth
+
+# Dry run (see what would be deleted without actually deleting)
 php artisan logs:cleanup --dry-run
 
-# Compress before deletion
+# Compress logs before deletion (saves backup)
 php artisan logs:cleanup --compress
+```
+
+### Automatic Cleanup (Cron Job)
+
+**The cleanup command runs automatically!** No manual setup needed. 🎉
+
+By default, it runs **daily at 2 AM** and removes logs older than:
+- **7 days** in `local` environment
+- **14 days** in `staging` environment
+- **30 days** in `production` environment
+
+**Customize the schedule:**
+
+```env
+# .env
+LOG_RETENTION_ENABLED=true
+LOG_RETENTION_DAYS=30  # Not used by auto-scheduler, but by manual command
+```
+
+```php
+// config/advanced-logger.php
+'retention' => [
+    'enabled' => true,
+    'days' => [
+        'local' => 7,
+        'staging' => 14,
+        'production' => 30,  // Delete logs older than 30 days
+    ],
+    'compress_before_delete' => true,
+    'cleanup_schedule' => '0 2 * * *', // Daily at 2 AM (cron expression)
+],
+```
+
+**Custom cron schedules:**
+
+| Expression | Description |
+|-----------|-------------|
+| `0 2 * * *` | Daily at 2:00 AM (default) |
+| `0 0 * * 0` | Weekly on Sunday at midnight |
+| `0 3 * * 1` | Every Monday at 3:00 AM |
+| `*/30 * * * *` | Every 30 minutes |
+| `0 */6 * * *` | Every 6 hours |
+
+**Important:** Make sure Laravel's scheduler is running:
+```bash
+# Add to your crontab (crontab -e)
+* * * * * cd /path-to-your-project && php artisan schedule:run >> /dev/null 2>&1
+```
+
+### Manual Cleanup
+
+You can also run cleanup manually at any time:
+
+```bash
+# Clean up now using environment defaults
+php artisan logs:cleanup
+
+# Force cleanup of logs older than 1 month
+php artisan logs:cleanup --days=30
+
+# Test what would be deleted first
+php artisan logs:cleanup --days=30 --dry-run
 ```
 
 ## 🔒 Security Features

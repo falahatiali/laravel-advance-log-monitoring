@@ -9,6 +9,7 @@ use Simorgh\Logger\Observers\LogModelObserver;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Console\Scheduling\Schedule;
 
 class SimorghLoggerServiceProvider extends ServiceProvider
 {
@@ -63,6 +64,9 @@ class SimorghLoggerServiceProvider extends ServiceProvider
 
         // Setup model observers
         $this->setupModelObservers();
+
+        // Schedule automatic cleanup
+        $this->scheduleCleanup();
     }
 
     /**
@@ -124,5 +128,27 @@ class SimorghLoggerServiceProvider extends ServiceProvider
                 }
             }
         }
+    }
+
+    /**
+     * Schedule automatic log cleanup.
+     */
+    protected function scheduleCleanup(): void
+    {
+        if (!config('advanced-logger.retention.enabled', true)) {
+            return;
+        }
+
+        $this->app->booted(function () {
+            $schedule = $this->app->make(Schedule::class);
+            
+            $cronExpression = config('advanced-logger.retention.cleanup_schedule', '0 2 * * *');
+            
+            $schedule->command('logs:cleanup')
+                ->cron($cronExpression)
+                ->withoutOverlapping()
+                ->onOneServer()
+                ->runInBackground();
+        });
     }
 }

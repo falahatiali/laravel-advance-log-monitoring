@@ -394,13 +394,71 @@ Check Laravel's default log files for errors:
 tail -f storage/logs/laravel.log
 ```
 
+## 🗑️ Automatic Log Cleanup
+
+The package automatically cleans up old logs - **no manual setup needed!**
+
+### How It Works
+
+The cleanup runs automatically based on your configuration:
+- **Local environment**: Deletes logs older than 7 days
+- **Staging environment**: Deletes logs older than 14 days  
+- **Production environment**: Deletes logs older than 30 days
+- **Default schedule**: Daily at 2:00 AM
+
+### Configuration
+
+```php
+// config/advanced-logger.php
+'retention' => [
+    'enabled' => true,
+    'days' => [
+        'local' => 7,
+        'staging' => 14,
+        'production' => 30,
+    ],
+    'compress_before_delete' => true,
+    'cleanup_schedule' => '0 2 * * *', // Cron expression
+],
+```
+
+### Requirements
+
+Make sure Laravel's task scheduler is running. Add this to your crontab:
+
+```bash
+# Edit crontab
+crontab -e
+
+# Add this line
+* * * * * cd /path-to-your-project && php artisan schedule:run >> /dev/null 2>&1
+```
+
+### Manual Cleanup
+
+You can also run cleanup manually:
+
+```bash
+# Use environment defaults
+php artisan logs:cleanup
+
+# Custom retention period
+php artisan logs:cleanup --days=30
+
+# Test first (dry run)
+php artisan logs:cleanup --days=30 --dry-run
+
+# Compress before deletion
+php artisan logs:cleanup --days=30 --compress
+```
+
 ## 📚 Next Steps
 
 After successful installation:
 
 1. **Configure Alerts**: Set up email, Slack, or Telegram alerts
 2. **Customize Categories**: Add your own log categories
-3. **Set Up Cleanup**: Configure automatic log cleanup
+3. **Verify Cleanup**: Test automatic cleanup with `php artisan logs:cleanup --dry-run`
 4. **Monitor Performance**: Use the dashboard to monitor your application
 5. **Export Data**: Use export features for log analysis
 

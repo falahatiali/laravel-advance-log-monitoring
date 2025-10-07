@@ -413,6 +413,39 @@ Schema::table('advanced_logs', function (Blueprint $table) {
 });
 ```
 
+### 4. Automatic Log Cleanup
+
+The package automatically cleans up old logs to prevent database bloat:
+
+```php
+// config/advanced-logger.php
+'retention' => [
+    'enabled' => true,
+    'days' => [
+        'production' => 30,  // Keep logs for 30 days in production
+    ],
+    'cleanup_schedule' => '0 2 * * *', // Run daily at 2 AM
+],
+```
+
+Make sure Laravel scheduler is running:
+```bash
+# Add to crontab
+* * * * * cd /path-to-your-project && php artisan schedule:run >> /dev/null 2>&1
+```
+
+Manual cleanup:
+```bash
+# Clean up old logs manually
+php artisan logs:cleanup
+
+# Force specific retention period
+php artisan logs:cleanup --days=30
+
+# Test before deleting
+php artisan logs:cleanup --days=30 --dry-run
+```
+
 ---
 
 ## 📝 Complete Integration Example
