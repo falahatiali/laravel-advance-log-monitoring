@@ -45,10 +45,14 @@ return new class extends Migration
             $table->index(['user_id', 'created_at']);
             $table->index(['level', 'category', 'created_at']);
             $table->index(['is_resolved', 'created_at']);
-
-            // Full text search on message
-            $table->fullText(['message']);
         });
+
+        // Full text search on message (MySQL/PostgreSQL only)
+        if (Schema::getConnection()->getDriverName() !== 'sqlite') {
+            Schema::table('advanced_logs', function (Blueprint $table) {
+                $table->fullText(['message']);
+            });
+        }
     }
 
     /**

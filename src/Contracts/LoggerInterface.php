@@ -47,7 +47,7 @@ interface LoggerInterface
     /**
      * Log a notice message.
      */
-    public function notice(string $message, array $notice, array $context = []): void;
+    public function notice(string $message, array $context = []): void;
 
     /**
      * Log an info message.
