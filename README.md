@@ -234,6 +234,7 @@ LOG_ALERT_SLACK_WEBHOOK=https://hooks.slack.com/services/...
 
 # Dashboard settings
 LOG_DASHBOARD_ENABLED=true
+LOG_DASHBOARD_PREFIX=advanced-logger
 LOG_DASHBOARD_REALTIME=true
 
 # Auto-logging
@@ -245,6 +246,54 @@ LOG_AUTO_QUERIES=false
 LOG_USE_QUEUE=false
 LOG_RETENTION_ENABLED=true
 LOG_RETENTION_DAYS=30
+```
+
+### Custom Route Prefix & Middleware
+
+You can customize the route prefix and middleware for the dashboard:
+
+**Option 1: Using Environment Variables**
+```env
+# Custom route prefix (default: advanced-logger)
+LOG_DASHBOARD_PREFIX=admin/dashboard/logs/panel
+```
+
+**Option 2: Using Config File**
+```php
+// config/advanced-logger.php
+'dashboard' => [
+    'enabled' => true,
+    'prefix' => 'admin/dashboard/logs/panel', // Custom prefix
+    'middleware' => ['web', 'auth', 'role:admin'], // Add your middleware
+    // ...
+],
+```
+
+**Examples:**
+
+| Configuration | Resulting URL |
+|--------------|---------------|
+| `prefix => 'advanced-logger'` | `mysite.com/advanced-logger` |
+| `prefix => 'admin/logs'` | `mysite.com/admin/logs` |
+| `prefix => 'admin/dashboard/logs/panel'` | `mysite.com/admin/dashboard/logs/panel` |
+
+**Middleware Examples:**
+
+```php
+// Basic authentication only
+'middleware' => ['web', 'auth'],
+
+// With role-based access (Spatie Permission)
+'middleware' => ['web', 'auth', 'role:admin'],
+
+// With permission-based access
+'middleware' => ['web', 'auth', 'permission:view-logs'],
+
+// Multiple roles
+'middleware' => ['web', 'auth', 'role:admin|developer'],
+
+// Custom middleware
+'middleware' => ['web', 'auth', 'custom.admin'],
 ```
 
 ### Auto-Logging Middleware
@@ -431,6 +480,7 @@ The MIT License (MIT). Please see [License File](LICENSE.md) for more informatio
 ## 📚 Additional Resources
 
 - [Installation Guide](INSTALLATION.md) - Complete setup guide
+- [Integration Guide](INTEGRATION.md) - Integrate with existing admin panels
 - [Laravel Logging Documentation](https://laravel.com/docs/logging)
 - [Monolog Documentation](https://github.com/Seldaek/monolog)
 - [Laravel Package Development](https://laravel.com/docs/packages)

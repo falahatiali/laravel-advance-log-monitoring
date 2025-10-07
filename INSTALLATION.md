@@ -95,11 +95,34 @@ Route::middleware(['auth', 'log.requests'])->group(function () {
 });
 ```
 
-### Step 7: Access the Dashboard
+### Step 7: Customize Route & Middleware (Optional)
 
-Visit `/advanced-logger` in your browser to access the dashboard.
+If you want to integrate the dashboard into your existing admin panel with custom routes and permissions, configure the prefix and middleware in your `.env`:
 
-**Note**: The dashboard is protected by authentication middleware by default. Make sure you're logged in.
+```env
+# Custom route prefix (default: advanced-logger)
+LOG_DASHBOARD_PREFIX=admin/dashboard/logs/panel
+
+# Or edit config/advanced-logger.php
+```
+
+```php
+// config/advanced-logger.php
+'dashboard' => [
+    'enabled' => true,
+    'prefix' => 'admin/dashboard/logs/panel', // Your custom prefix
+    'middleware' => ['web', 'auth', 'role:admin'], // Your middleware
+    // ...
+],
+```
+
+### Step 8: Access the Dashboard
+
+Visit the dashboard URL based on your configuration:
+- Default: `/advanced-logger`
+- Custom: `/admin/dashboard/logs/panel` (based on your prefix)
+
+**Note**: The dashboard is protected by authentication middleware by default. Make sure you're logged in and have the required permissions.
 
 ## ⚙️ Configuration Options
 
@@ -160,6 +183,52 @@ Configure alerts for critical events:
 ```
 
 ## 🔧 Advanced Setup
+
+### Integration with Existing Admin Panel
+
+If you have an existing admin panel with role/permission system, you can easily integrate Simorgh Logger:
+
+**Example 1: Using Spatie Laravel Permission**
+```php
+// config/advanced-logger.php
+'dashboard' => [
+    'prefix' => 'admin/logs',
+    'middleware' => ['web', 'auth', 'role:admin'],
+],
+```
+
+**Example 2: Using Custom Permission Middleware**
+```php
+// config/advanced-logger.php
+'dashboard' => [
+    'prefix' => 'admin/dashboard/logs/panel',
+    'middleware' => ['web', 'auth', 'can:view-logs'],
+],
+```
+
+**Example 3: Using Multiple Roles**
+```php
+// config/advanced-logger.php
+'dashboard' => [
+    'prefix' => 'panel/logs',
+    'middleware' => ['web', 'auth', 'role:admin|developer|support'],
+],
+```
+
+**Example 4: Nested Admin Routes**
+```php
+// config/advanced-logger.php
+'dashboard' => [
+    'prefix' => 'admin/system/monitoring/logs',
+    'middleware' => ['web', 'auth', 'admin.access', 'permission:system.logs'],
+],
+```
+
+This gives you:
+- `mysite.com/admin/system/monitoring/logs` - Main dashboard
+- `mysite.com/admin/system/monitoring/logs/logs` - All logs
+- `mysite.com/admin/system/monitoring/logs/stats` - Statistics
+- `mysite.com/admin/system/monitoring/logs/alerts` - Alerts
 
 ### Custom Middleware
 

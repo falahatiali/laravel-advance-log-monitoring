@@ -102,7 +102,8 @@ return [
 
     'dashboard' => [
         'enabled' => env('LOG_DASHBOARD_ENABLED', true),
-        'middleware' => ['auth'], // Add 'admin' or custom middleware as needed
+        'prefix' => env('LOG_DASHBOARD_PREFIX', 'advanced-logger'), // Customize route prefix
+        'middleware' => ['web', 'auth'], // Add 'role:admin', 'permission:view-logs' or custom middleware as needed
         'pagination' => 50,
         'max_display_levels' => ['emergency', 'alert', 'critical', 'error', 'warning'],
         'real_time' => [

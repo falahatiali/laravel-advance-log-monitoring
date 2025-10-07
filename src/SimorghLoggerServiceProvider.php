@@ -74,8 +74,15 @@ class SimorghLoggerServiceProvider extends ServiceProvider
             return;
         }
 
-        Route::middleware(['web', 'auth'])
-            ->prefix('advanced-logger')
+        if (!config('advanced-logger.dashboard.enabled', true)) {
+            return;
+        }
+
+        $prefix = config('advanced-logger.dashboard.prefix', 'advanced-logger');
+        $middleware = config('advanced-logger.dashboard.middleware', ['web', 'auth']);
+
+        Route::middleware($middleware)
+            ->prefix($prefix)
             ->group(__DIR__.'/../routes/web.php');
     }
 
