@@ -26,6 +26,32 @@
 - ⚡ **Performance** - Queue support and optimized queries
 - 🧹 **Auto Cleanup** - Configurable retention policies
 
+## 🎮 Try Live Demo
+
+Want to see Simorgh Logger in action before installing? Try our demo!
+
+### Quick Demo (One Command)
+```bash
+git clone https://github.com/falahatiali/laravel-advance-log-monitoring.git
+cd laravel-advance-log-monitoring
+chmod +x demo.sh && ./demo.sh
+```
+
+Then visit: **http://localhost:8000/logs**
+
+### Docker Demo (No PHP Required)
+```bash
+git clone https://github.com/falahatiali/laravel-advance-log-monitoring.git
+cd laravel-advance-log-monitoring
+docker-compose up -d
+```
+
+Visit: **http://localhost:8080/logs**
+
+📖 Full demo guide: [DEMO.md](DEMO.md)
+
+---
+
 ## 📦 Installation
 
 ### Composer

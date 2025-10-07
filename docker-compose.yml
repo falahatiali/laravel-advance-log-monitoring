@@ -1,0 +1,67 @@
+version: '3.8'
+
+services:
+  app:
+    image: php:8.2-fpm
+    container_name: simorgh-logger-demo
+    working_dir: /var/www
+    volumes:
+      - ./demo-docker:/var/www
+    networks:
+      - simorgh-network
+    environment:
+      - DB_CONNECTION=mysql
+      - DB_HOST=db
+      - DB_PORT=3306
+      - DB_DATABASE=simorgh_demo
+      - DB_USERNAME=simorgh
+      - DB_PASSWORD=secret
+    depends_on:
+      - db
+    command: >
+      sh -c "
+      apt-get update && 
+      apt-get install -y git unzip libzip-dev libpng-dev && 
+      docker-php-ext-install pdo pdo_mysql zip gd &&
+      curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer &&
+      sleep 5 &&
+      tail -f /dev/null
+      "
+
+  web:
+    image: nginx:alpine
+    container_name: simorgh-logger-nginx
+    working_dir: /var/www
+    volumes:
+      - ./demo-docker:/var/www
+      - ./docker/nginx.conf:/etc/nginx/conf.d/default.conf
+    ports:
+      - "8080:80"
+    networks:
+      - simorgh-network
+    depends_on:
+      - app
+
+  db:
+    image: mysql:8.0
+    container_name: simorgh-logger-db
+    environment:
+      MYSQL_DATABASE: simorgh_demo
+      MYSQL_USER: simorgh
+      MYSQL_PASSWORD: secret
+      MYSQL_ROOT_PASSWORD: rootsecret
+    ports:
+      - "3306:3306"
+    volumes:
+      - dbdata:/var/lib/mysql
+    networks:
+      - simorgh-network
+
+networks:
+  simorgh-network:
+    driver: bridge
+
+volumes:
+  dbdata:
+    driver: local
+
